@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plainsail — Practical AI Implementation · Alexandria, VA</title>
+<meta name="description" content="Plainsail LLC helps small businesses put AI to work where it actually pays — practical automation built into the tools you already use. Alexandria, Virginia.">
+<link rel="canonical" href="https://plainsail.co/">
+<meta property="og:title" content="Plainsail — Practical AI Implementation">
+<meta property="og:description" content="AI that earns its keep. Fixed-scope audits, working systems, plain language. Alexandria, Virginia.">
+<meta property="og:url" content="https://plainsail.co/">
+<meta property="og:type" content="website">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M17 3v20H6z" fill="%23175E73"/><path d="M19 8v15h8z" fill="%23B8891F"/><path d="M3 26h26l-2.5 3H5.5z" fill="%2314303E"/></svg>'>
+<style>
+  :root {
+    --paper: #FAF8F3;
+    --sail: #FFFFFF;
+    --ink: #14303E;
+    --muted: #56707C;
+    --sea: #175E73;
+    --sea-deep: #0F4557;
+    --gold: #B8891F;
+    --line: #E4DFD2;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  h1, h2, h3, .wordmark {
+    font-family: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, serif;
+    line-height: 1.15;
+    text-wrap: balance;
+    font-weight: 600;
+  }
+  a { color: var(--sea); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  header.site {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 0;
+  }
+  .wordmark {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 1.35rem; letter-spacing: 0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .wordmark svg { display: block; }
+  nav.top a {
+    color: var(--ink); text-decoration: none; font-size: 0.95rem;
+    margin-left: 1.6rem; letter-spacing: 0.01em;
+  }
+  nav.top a:hover { color: var(--sea); }
+
+  .hero { padding: 5.5rem 0 5rem; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem;
+    font-weight: 700; color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 3.9rem); max-width: 18ch; }
+  .hero p.lede {
+    max-width: 34rem; margin-top: 1.4rem; font-size: 1.15rem; color: var(--muted);
+  }
+  .cta {
+    display: inline-block; margin-top: 2.2rem;
+    background: var(--sea); color: var(--sail); text-decoration: none;
+    padding: 0.85rem 1.6rem; border-radius: 4px; font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .cta:hover { background: var(--sea-deep); }
+  .horizon {
+    margin: 0; padding: 0; height: 90px; overflow: hidden; color: var(--line);
+  }
+  .horizon svg { width: 100%; height: 100%; display: block; }
+
+  section { padding: 4.5rem 0; }
+  section h2 { font-size: 1.9rem; margin-bottom: 0.6rem; }
+  .kicker { color: var(--muted); max-width: 38rem; margin-bottom: 2.4rem; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr)); gap: 1.2rem; }
+  .card {
+    background: var(--sail); border: 1px solid var(--line); border-radius: 6px;
+    padding: 1.6rem 1.5rem 1.7rem;
+  }
+  .card .num {
+    font-family: "Iowan Old Style", Charter, Georgia, serif;
+    color: var(--gold); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em;
+  }
+  .card h3 { font-size: 1.25rem; margin: 0.5rem 0 0.6rem; }
+  .card p { color: var(--muted); font-size: 0.97rem; }
+
+  .principles { background: var(--ink); color: #E9E4D8; }
+  .principles h2 { color: var(--sail); }
+  .principles .kicker { color: #A9B8BF; }
+  .principles ul {
+    list-style: none; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.1rem 2.5rem;
+  }
+  .principles li { padding-left: 1.6rem; position: relative; font-size: 1.02rem; }
+  .principles li::before {
+    content: ""; position: absolute; left: 0; top: 0.52em;
+    width: 0.75rem; height: 2px; background: var(--gold);
+  }
+
+  .about .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .about p { max-width: 34rem; color: var(--muted); }
+  .about p strong { color: var(--ink); }
+  .contactbox {
+    background: var(--sail); border: 1px solid var(--line); border-radius: 6px;
+    padding: 1.8rem 1.7rem;
+  }
+  .contactbox h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .contactbox p { color: var(--muted); margin-bottom: 1.1rem; }
+  .contactbox a.mail { font-weight: 600; font-size: 1.05rem; }
+
+  footer.site {
+    border-top: 1px solid var(--line); padding: 2rem 0 2.6rem;
+    color: var(--muted); font-size: 0.9rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between;
+  }
+  @media (max-width: 720px) {
+    .about .cols { grid-template-columns: 1fr; }
+    nav.top a { margin-left: 1rem; }
+    .hero { padding: 3.5rem 0 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site">
+    <a class="wordmark" href="#top" aria-label="Plainsail home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M17 3v20H6z" fill="#175E73"/>
+        <path d="M19 8v15h8z" fill="#B8891F"/>
+        <path d="M3 26h26l-2.5 3H5.5z" fill="#14303E"/>
+      </svg>
+      Plainsail
+    </a>
+    <nav class="top" aria-label="Site">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+</div>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Plainsail LLC · Alexandria, Virginia</p>
+      <h1>AI that earns its keep.</h1>
+      <p class="lede">Plainsail helps small businesses put AI to work where it
+      actually pays — practical automation, built into the tools you already
+      use, measured by the hours it gives back.</p>
+      <a class="cta" href="mailto:leonard@plainsail.co">Start a conversation</a>
+    </section>
+  </div>
+
+  <div class="horizon" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <line x1="0" y1="70" x2="1200" y2="70" stroke="currentColor" stroke-width="2"/>
+      <path d="M965 68 L965 30 L940 68 Z" fill="#175E73" opacity="0.85"/>
+      <path d="M970 68 L970 44 L986 68 Z" fill="#B8891F" opacity="0.85"/>
+    </svg>
+  </div>
+
+  <div class="wrap">
+    <section id="services">
+      <h2>What we do</h2>
+      <p class="kicker">Three ways to work together, each with a fixed scope
+      and a plain-language deliverable.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>AI Audit</h3>
+          <p>A fixed-scope assessment of your operations: where AI genuinely
+          pays off, where it doesn't, and a costed plan for the pieces worth
+          building. The plan is yours to keep — whoever builds it.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>Build &amp; Integrate</h3>
+          <p>We implement what the audit surfaces — automations, assistants,
+          and pipelines wired into your existing systems. Shipped working,
+          documented, and owned by you.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Run &amp; Advise</h3>
+          <p>Ongoing support that keeps what we built earning: monitoring,
+          refinements, and a standing advisor as the AI landscape shifts
+          under everyone's feet.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="principles" id="approach">
+    <div class="wrap">
+      <h2>Plain sailing, by design</h2>
+      <p class="kicker">The name is the operating principle: adopting AI
+      should reduce drag, not add it.</p>
+      <ul>
+        <li>Fixed scopes, plain language, no hype — and a clear "no" when AI isn't the answer.</li>
+        <li>We build on the systems you already run, not a rip-and-replace.</li>
+        <li>Everything documented and handed over. No lock-in, ever.</li>
+        <li>We run our own operations on the same automation we sell.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="about" id="contact">
+      <div class="cols">
+        <div>
+          <h2>A small practice, on purpose</h2>
+          <p>Plainsail is the independent consulting practice of
+          <strong>Leonard Eager</strong> in Alexandria, Virginia. One
+          consultant, senior attention on every engagement, and no hand-offs —
+          the person you talk to is the person who does the work.</p>
+        </div>
+        <div class="contactbox">
+          <h3>Start a conversation</h3>
+          <p>Tell us what eats your team's hours. We'll tell you honestly
+          whether AI can win them back.</p>
+          <a class="mail" href="mailto:leonard@plainsail.co">leonard@plainsail.co</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="wrap">
+  <footer class="site">
+    <span>© 2026 Plainsail LLC · Alexandria, Virginia</span>
+    <span><a href="mailto:leonard@plainsail.co">leonard@plainsail.co</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
