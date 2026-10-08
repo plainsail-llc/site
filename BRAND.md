@@ -126,8 +126,15 @@ Focus rings: 3px `--gold`, 2px offset — keep them, they are the accessibility 
 - **Invoices:** ink text on white, a single `--sea` rule under the header. No gold.
 - **Email signature:** plain text or minimal HTML — name in `--ink`, "Plainsail LLC" and the
   plainsail.co link in `--sea`. No image logo (it trips spam filters and breaks in dark mode).
-- **Demo sites built for prospects:** these carry the *prospect's* brand, not Plainsail's. Only the
-  small "built by Plainsail" credit uses `--sea`.
+- **Demo sites built for prospects:** these carry the *prospect's* brand, not Plainsail's. The page
+  above the fold is theirs entirely — palette, type, voice — and nothing of Plainsail's appears in it.
+  **Carve-out, added 2026-08-26:** the Alexandria campaign demos end with a full-width closing note
+  in Plainsail's own dark-context palette (`--ink` ground, `#E9E4D8` body, `#BC8C20` gold), set off by
+  a 3px gold rule. It is not a credit line; it is the campaign's entire conversion mechanism, and it
+  is deliberately built to read as a separate voice speaking *about* the page rather than as part of
+  the business's site. The separation is the point — a small tasteful credit would have been read as
+  the prospect's own footer. Everything above that rule still obeys the first sentence.
+  Source of truth: `~/alexandria-redesigns/data/credit-block.json`.
 - **Dark contexts:** `--ink` ground, `#E9E4D8` body, `--sail` headings, `#BC8C20` for gold accents.
 
 ---
