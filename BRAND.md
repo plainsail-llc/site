@@ -6,7 +6,7 @@ one-pagers, email signatures, demo sites built for prospects.
 **Source of truth:** the `:root` block in `index.html` (this repo). If a value changes there,
 change it here in the same commit. Nothing else defines these colors — there is no design file.
 
-A read-only mirror lives at `~/Vault/Research/Brand Guide.md` for the Obsidian KB; it carries its
+A read-only mirror lives at `~/local/Vault/Research/Brand Guide.md` for the Obsidian KB; it carries its
 own refresh command. Never edit the mirror.
 
 ---
@@ -134,7 +134,7 @@ Focus rings: 3px `--gold`, 2px offset — keep them, they are the accessibility 
   is deliberately built to read as a separate voice speaking *about* the page rather than as part of
   the business's site. The separation is the point — a small tasteful credit would have been read as
   the prospect's own footer. Everything above that rule still obeys the first sentence.
-  Source of truth: `~/alexandria-redesigns/data/credit-block.json`.
+  Source of truth: `~/local/plainsail-llc/alexandria-redesigns/data/credit-block.json`.
 - **Dark contexts:** `--ink` ground, `#E9E4D8` body, `--sail` headings, `#BC8C20` for gold accents.
 
 ---
